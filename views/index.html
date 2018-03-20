@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- <script src="web3.min.js"></script>  -->
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		if (typeof web3 !== 'undefined') {
+			web3 = new Web3(web3.currentProvider);
+		}
+	   	else { // browser is not web3-enabled 
+	   	} 
+	   var accountAddr = "0xaab49483bc4482a49e3f2cd8782f92516cceed04"; 
+	   if(web3.isAddress(accountAddr)==false){ 
+	  	 console.log("This address is not valid"); 
+	  	}
+	   var coinBalance=web3.eth.getBalance(accountAddr,function(err,success){
+		   	console.log("success: ",success);
+		   	var value= web3.fromWei(success.toNumber(),"ether")
+		   	console.log("ethter: ",value);
+	   }); 
+</script>
+</body>
+</html>
